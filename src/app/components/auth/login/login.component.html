@@ -1,0 +1,35 @@
+<body class="login-page" style="background-image :url('{{backgroundImage}}');background-repeat:no-repeat;background-size:100% 100%;">
+    <div class="login-box">
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a class="h1"><b>Angular</b>LTE</a>
+        </div>
+        <div class="card-body">
+          <p class="login-box-msg">Giriş yapmak için bilgilerinizi doldurun</p>
+
+            <div class="input-group mb-3">
+              <input [(ngModel)]="model.emailOrUserName" type="email" class="form-control" placeholder="Email veya Kullanıcı adı">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input [(ngModel)]="model.password" type="password" class="form-control" placeholder="Şifre">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <button (click)="signIn()" class="btn btn-primary btn-block">Giriş</button>
+
+          <p class="mb-1 mt-2">
+            <a routerLink="/forgot-password" >Şifremi Unuttum</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    </body>

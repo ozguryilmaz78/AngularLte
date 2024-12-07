@@ -4,6 +4,7 @@ import { HttpService } from '../../../services/management/http.service';
 import { SwalService } from '../../../services/management/swal.service';
 import { ForgotPasswordModel } from '../../../models/auth/forgot-password/format-password.model';
 import { SharedModule } from '../../../modules/shared.module';
+import { loginBackgroundImage, programNameBold, programNameRegular } from '../../../constants';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,6 +13,9 @@ import { SharedModule } from '../../../modules/shared.module';
   styleUrl: './forgot-password.component.scss',
 })
 export class ForgotPasswordComponent {
+  backgroundImage = `${loginBackgroundImage}`;
+  programNameBold = `${programNameBold}`;
+  programNameRegular = `${programNameRegular}`;
   model: ForgotPasswordModel = new ForgotPasswordModel();
   constructor(private http: HttpService, private swal: SwalService) {}
 

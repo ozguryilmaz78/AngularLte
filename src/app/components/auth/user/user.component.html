@@ -4,10 +4,13 @@
         <flexi-grid
         [dataBinding]="true"
         [data]="datas"
+        (dataStateChange)="dataStateChange($event)"
         [pageable]="true"
+        [pageSize]="10"
+        [loading]="loading"
         [showIndex]="true"
         [filterable]="true"
-        captionTitle="Örnek User Listesi"
+        captionTitle="Kullanıcı Listesi"
         [captionTemplate]="captionTemplate"
         [showCaption]="true"
         [showExportExcelBtn]="true"
@@ -18,35 +21,30 @@
         commandColumnWidth="80px"
         [useMinWidth]="true"
         minWidth="1000px"
-        exportExcelFileName="userlists">
+        exportExcelFileName="KulanıcıListesi">
         <ng-template #captionTemplate>
-          <flexi-button btnColor="primary" btnIcon="add" flexiTooltip title="Ekle" />
+          <flexi-button btnColor="primary" btnIcon="add" flexiTooltip (click)="add()" title="Ekle" />
         </ng-template>
       
-        <flexi-grid-column [visible]="false" field="id" title="Id" [sortable]="false"></flexi-grid-column>
-        <flexi-grid-column field="firstName" title="First Name"></flexi-grid-column>
-        <flexi-grid-column field="lastName" title="Last Name"></flexi-grid-column>
-        <flexi-grid-column title="Custom Column">
-          <ng-template flexiGridCellTemplate let-item>
-            Burası Custom Column
+        <flexi-grid-column title="Fotoğraf" [sortable]="false">  
+          <ng-template flexiGridCellTemplate let-item let-rowIndex="rowIndex">
+            <img src="{{item.photoUrl}}" class="img-circle img-bordered" style="height:80px;width:80px;">
           </ng-template>
         </flexi-grid-column>
-        <flexi-grid-column field="dateOfBirth" [filterType]="'date'" format="dd.MM.yyyy"
-          title="Date Of Birth"></flexi-grid-column>
-        <flexi-grid-column field="salary" filterType="number" format="c" symbol="₺" textAlign="right"
-          [showSymbolInFront]="true" [fraction]="2" title="Salary"></flexi-grid-column>
-        <flexi-grid-column field="isActive" title="Is Active" filterType="boolean" [booleanData]="['Active','Passive']"
-          textAlign="center" width="100px"></flexi-grid-column>
-        <flexi-grid-column field="city" title="City" filterType="select"
-          textAlign="center"></flexi-grid-column>
-      
-        <ng-template #commandButtonColumnTemplate let-item="item">
-          <flexi-button btnColor="primary" btnIcon="edit" btnSize="small" flexiTooltip title="Güncelle" />
-          <flexi-button btnColor="danger" class="ms-1" btnSize="small" btnIcon="remove"
+        <flexi-grid-column [visible]="true" field="id" title="Id"></flexi-grid-column>
+        <flexi-grid-column field="firstName" title="Ad" ></flexi-grid-column>
+        <flexi-grid-column field="lastName" title="Soyad"></flexi-grid-column>
+        <flexi-grid-column field="userRole" title="Yetkiler" filterType="select" [filterData]="filterDatas"></flexi-grid-column>
+        <flexi-grid-column field="emailConfirmed" title="Email Onay Durumu" filterType="boolean"
+        [booleanData]="['Onaylı','Onaysız']" textAlign="center" width="100px" [showCheckbox]="false"></flexi-grid-column>
+        
+        <ng-template #commandButtonColumnTemplate let-item let-index="index">
+          <flexi-button btnColor="primary" btnIcon="edit" btnSize="small" (click)="update(item.id)" flexiTooltip title="Güncelle" />
+          <flexi-button btnColor="danger" class="ms-1" btnSize="small" btnIcon="remove" (click)="remove(item.id)"
             flexiTooltip title="Sil" />
         </ng-template>
       </flexi-grid>
-      
+
     </app-section>
   </app-blank>
   

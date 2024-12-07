@@ -4,6 +4,7 @@ import { HttpService } from '../../../services/management/http.service';
 import { SwalService } from '../../../services/management/swal.service';
 import { ChangePasswordModel } from '../../../models/auth/change-password/change-password.model';
 import { SharedModule } from '../../../modules/shared.module';
+import { programNameBold, programNameRegular } from '../../../constants';
 
 @Component({
   selector: 'app-change-password',
@@ -13,6 +14,8 @@ import { SharedModule } from '../../../modules/shared.module';
 })
 export class ChangePasswordComponent {
   model: ChangePasswordModel = new ChangePasswordModel();
+  programNameBold = `${programNameBold}`;
+  programNameRegular = `${programNameRegular}`;
   constructor(
     private http: HttpService, 
     private swal: SwalService) {}

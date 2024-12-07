@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlankComponent } from '../components/layout/blank/blank.component';
 import { SectionComponent } from '../components/layout/section/section.component';
 
@@ -12,13 +12,15 @@ import { SectionComponent } from '../components/layout/section/section.component
     CommonModule,
     BlankComponent,
     SectionComponent,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
     BlankComponent,
     SectionComponent,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

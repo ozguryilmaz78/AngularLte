@@ -1,4 +1,14 @@
 export const
+//#region MANAGEMENT
+programNameBold:string="Test",
+programNameRegular:string="Programı",
+//#endregion
+
+//#region URL
 identityApi:string = "https://localhost:5000/api",
 api:string = "https://localhost:6000/api",
-loginBackgroundImage:string = "https://png.pngtree.com/thumb_back/fw800/background/20240724/pngtree-miniature-houses-with-roofs-real-estate-concept-image_16051869.jpg"
+programLogoImage:string="https://localhost:5000/img/logo/logo.jpg",
+loginBackgroundImage:string = "https://localhost:5000/img/background/background.jpg",
+defaultUserImage:string = "https://localhost:5000/img/user/defaultUser.jpg",
+emailVerifyImage:string = "https://localhost:5000/img/email/email-verify.jpg"
+//#endregion

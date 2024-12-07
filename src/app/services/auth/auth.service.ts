@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import { UserModel } from '../../models/auth/user.model';
+import { UserModel } from '../../models/auth/user/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,10 +25,13 @@ export class AuthService {
       return false;
     }
     this.user.id = decode['Id'];
-    this.user.name = decode['Name'];
+    this.user.fullName = decode['Name'];
     this.user.email = decode['Email'];
     this.user.userName = decode['UserName'];
+    this.user.photoUrl = decode['PhotoUrl'];
+    this.user.userRole = decode['UserRole'];
 
     return true;
   }
+  
 }

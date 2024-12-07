@@ -1,13 +1,13 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
+  <a class="brand-link">
     <img
-      src="dist/img/AdminLTELogo.png"
-      alt="AdminLTE Logo"
+      src="{{programLogoImage}}"
+      alt="{{programNameBold}}{{programNameRegular}} Logo"
       class="brand-image img-circle elevation-3"
       style="opacity: 0.8"
     />
-    <span class="brand-text font-weight-light">AngularLTE</span>
+    <span class="brand-text font-weight-light"><b>{{programNameBold}}</b>{{programNameRegular}}</span>
   </a>
 
   <!-- Sidebar -->
@@ -15,14 +15,10 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVlszH7tmKiwhO2EhbnXeR5iQg8ct-k5_MYw&s"
-          class="img-circle elevation-2"
-          alt="User Image"
-        />
+        <img src="{{auth.user.photoUrl}}" class="img-circle" style="height:60px;width:60px;">
       </div>
       <div class="info">
-        <a href="#" class="d-block">{{auth.user.name}}</a>
+        <a class="d-block mt-3">{{auth.user.fullName}}</a>
       </div>
     </div>
 
@@ -53,7 +49,7 @@
         @if(menu.isTitle) {
         <li class="nav-header">{{ menu.name }}</li>
         }@else if(menu.subMenus.length > 0) {
-        <li class="nav-item">
+        <li class="nav-item" >
           <a class="nav-link">
             <i class="{{menu.icon}} me-01"></i>
             <span class="badge badge-primary right">{{menu.subMenus.length}}</span>

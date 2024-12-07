@@ -1,0 +1,21 @@
+<body class="login-page" style="background-image :url('{{backgroundImage}}');background-repeat:no-repeat;background-size:100% 100%;">
+    <div class="login-box">
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a class="h1"><b>{{programNameBold}}</b>{{programNameRegular}}</a>
+        </div>
+        <div class="card-body">
+          <p class="login-box-msg">Email Onay Ekranı</p>
+
+            <div class="input-group mb-3" style="display: flex; justify-content: center;margin: auto;">
+                <img src="{{emailverifyImage}}" class="img-circle img-bordered">
+            </div>
+
+            <button  class="btn btn-primary btn-block" (click)="redirectLogin()">Kapat</button>
+
+         
+        </div>
+      </div>
+    </div>
+
+    </body>

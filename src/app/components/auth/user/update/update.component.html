@@ -1,0 +1,53 @@
+    <app-blank [routes]="['Kullanıcı İşlemleri','Kullanıcı Bilgileri',this.isState]" pageName="Kullanıcı Bilgileri">
+    <app-section sectionTitle={{this.isState}}>     
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <img src="{{this.datas.photoUrl}}" class="img-circle img-bordered" style="width:160px;height:160px;">
+            <div class="row">
+                <!-- Sol Sütun -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="firstName">Ad</label>
+                    <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Soyad</label>
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                  </div>
+                </div>
+                <!-- Sağ Sütun -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="userName">Kullanıcı Adı</label>
+                    <input type="text" id="userName" class="form-control" formControlName="userName">
+                  </div>
+                  <div class="form-group" *ngIf="this.id=='0'">
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" class="form-control" formControlName="password">
+                  </div>
+                  <div class="form-group">
+                    <label for="userRoles">Yetki</label>
+                    <select id="userRoles" class="form-control" formControlName="userRoles">
+                      <option *ngFor="let role of roles" [value]="role.id" [selected]="role.description === this.datas.userRole">
+                        {{ role.description}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="photoFile">Fotoğraf</label>
+                    <input type="file" id="photoFile" class="form-control" (change)="onFileSelected($event)" accept="image/jpg">
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <button (click)="onCancel()" class="btn btn-secondary float-right">Vazgeç</button>
+                <input type="submit" value="Kaydet" class="btn btn-success float-right mr-2">
+                </div>
+            </div>
+        </form>    
+    </app-section>
+  </app-blank>
